@@ -15,13 +15,14 @@ public class RefererServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=utf-8");
 //对新闻的来源进行判断
         String header = req.getHeader("referer");
-        if(header!=null&&header.startsWith("http://localhost")){
+        if (header != null && header.startsWith("http://localhost")) {
             //是从我自己的网站跳转过来的 可以看新闻
             response.setContentType("text/html;charset=UTF-8");
             response.getWriter().write("中国确实已经拿到100块金牌....");
-        }else{
+        } else {
             response.getWriter().write("你是盗链者，可耻！！");
         }
     }

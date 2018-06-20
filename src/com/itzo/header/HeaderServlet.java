@@ -15,6 +15,7 @@ import java.util.Enumeration;
 public class HeaderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html; charset=utf-8");
         //1、获得指定的头
         String header = request.getHeader("User-Agent");
         System.out.println(header);
